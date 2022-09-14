@@ -1,0 +1,41 @@
+package com._1lab.firma;
+
+import java.util.Scanner;
+
+public class Firma { // головний клас
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in, "cp1251");
+
+        System.out.println("Enter number of workers => ");
+        int kol = sc.nextInt();
+        sc.nextLine();
+
+        Sotrudnik[] sotr = new Sotrudnik[kol];
+
+        System.out.println("Enter the info about each worker:");
+
+        for (int i = 0; i < sotr.length; i++) {
+            sotr[i] = new Sotrudnik();
+
+            System.out.print("Enter the surname of the " + (i + 1) + " worker => ");
+            sotr[i].fam = sc.nextLine();
+
+            System.out.print("Enter his name => ");
+            sotr[i].im = sc.nextLine();
+
+            System.out.print("Enter his father's name => ");
+            sotr[i].otch = sc.nextLine();
+
+            System.out.print("Enter his occupation => ");
+            sotr[i].doljnost = sc.nextLine();
+
+            System.out.print("Enter his salary => ");
+            sotr[i].oklad = sc.nextInt();
+            sc.nextLine();
+        }
+            System.out.println("\nCompany workers:\nSurname\tname\tfather's name\toccupation\tsalary");
+            for (Sotrudnik s: sotr) {
+                System.out.println(s.fam + "\t" + s.im + "\t" + s.otch + "\t" + s.doljnost + "\t\t" + s.oklad);
+            }
+        }
+    }
